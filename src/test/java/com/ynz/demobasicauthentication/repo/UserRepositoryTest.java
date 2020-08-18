@@ -16,6 +16,7 @@ import static java.util.stream.Collectors.toSet;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -58,6 +59,28 @@ class UserRepositoryTest {
     void findByLoginNameNotExisted() {
         Optional<User> found = repository.findByLoginName("yy@gmail.com");
         assertFalse(found.isPresent());
+    }
+
+    @Test
+    void persistUser() {
+        Role role1 = new Role("USER");
+        Role role2 = new Role("ADMIN");
+
+        Set<Role> roles = Stream.of(role1, role2).collect(toSet());
+        String loginName = "xx@gmail.com";
+        String password = "1234";
+
+        User user = User.builder().loginName(loginName).password(password)
+                .roles(Stream.of(role1, role2).collect(toSet())).build();
+
+        User persisted = repository.save(user);
+        assertThat(persisted, is(notNullValue()));
+
+        User found = testEntityManager.find(User.class, persisted.getId());
+        assertThat(found, is(notNullValue()));
+
+        assertThat(found.getRoles(), is(notNullValue()));
+        assertThat(found.getRoles(), hasSize(2));
     }
 
 }
