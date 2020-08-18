@@ -1,7 +1,6 @@
 package com.ynz.demobasicauthentication.service;
 
 import com.ynz.demobasicauthentication.entities.User;
-import com.ynz.demobasicauthentication.exceptions.UserNotFoundException;
 import com.ynz.demobasicauthentication.repo.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,7 +16,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByLoginName(username)
-                .orElseThrow(() -> new UserNotFoundException(username + " is not found."));
+                .orElseThrow(() -> new UsernameNotFoundException(username + " is not found."));
 
         return SecuredUser.instance(user);
     }
