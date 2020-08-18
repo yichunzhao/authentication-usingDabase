@@ -10,6 +10,7 @@ public class SuperManController {
 
     @GetMapping("superman")
     public String getSuperMan(){
+
         return "superman is flying";
     }
 
