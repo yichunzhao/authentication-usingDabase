@@ -14,7 +14,9 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toSet;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DataJpaTest
@@ -46,6 +48,16 @@ class UserRepositoryTest {
         Optional<User> found = repository.findByLoginName("xx@gmail.com");
         assertTrue(found.isPresent());
 
-        assertThat(found.get().getPassword(), is("1234"));
+        User user = found.get();
+
+        assertThat(user.getPassword(), is("1234"));
+        assertThat(user.getRoles(), hasSize(2));
     }
+
+    @Test
+    void findByLoginNameNotExisted() {
+        Optional<User> found = repository.findByLoginName("yy@gmail.com");
+        assertFalse(found.isPresent());
+    }
+
 }
