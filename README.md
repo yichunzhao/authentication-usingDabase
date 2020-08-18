@@ -11,10 +11,10 @@ The items can be auto-configured by the Spring auto-configuration mechanism. If 
 
 ## authentication using database
 
-**AuthenticationProvider** is an interface indicating its impl. provides authentication services. 
+**AuthenticationProvider** is an interface indicating that its impl. provides authentication services. 
 
-For an authentication using database, using **DaoAuthenticationProvider**, which depends on the following two beans. 
+For an authentication using a database, **DaoAuthenticationProvider**, depending on two beans. 
 
 **PasswordEncorder** and **UserDetailsService** 
 
-The key part is to implement the **UserDetailsService** to access a database, and load the **UserDetails** by its **UserName**. 
+The key is to implement the **UserDetailsService** to access a database, and load the **UserDetails** by its **UserName**. 
