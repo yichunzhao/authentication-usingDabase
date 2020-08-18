@@ -2,7 +2,7 @@
 
 Spring security has done a lot of magics.  Key entry points to configure this framework
 
-* **customer security Configuration** that extends from the `WebSecurityConfigurationAdater`
+* **Customer security Configuration** that extends from the `WebSecurityConfigurationAdater`
 * UserDetailsService: how and where the **UserDetails** is loaded
 * **PasswordEncorder**: indicating which password encorder is applied. 
 * **UserDetails** is an Spring interface, which illustrates the user security attributes
@@ -16,3 +16,5 @@ The items can be auto-configured by the Spring auto-configuration mechanism. If 
 For an authentication using database, using **DaoAuthenticationProvider**, which depends on the following two beans. 
 
 **PasswordEncorder** and **UserDetailsService** 
+
+The key part is to implement the **UserDetailsService** to access a database, and load the **UserDetails** by its **UserName**. 
