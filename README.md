@@ -1,4 +1,4 @@
-# demo-basic-authentication
+# demo-authentication
 
 Spring security has done a lot of magics.  Key entry points to configure this framework
 
