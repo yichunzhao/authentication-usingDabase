@@ -21,11 +21,15 @@ The key is to implement the **UserDetailsService** to access a database, and loa
 
 ## Using custom login/logout form
 
+Compared with the basic authentication, form-based allows to define a logout precess, but the basic cannot.  
+
 So far we are using the default login and logout form provided by Spring security. We may also config our own login and logout templates. 
 
 **AuthenticationProvider** provides an authentication service, according to username and password. How is it used by the template? 
 
 The magic that linking the login form with the **AuthenticationProvider** is the input field name, i.e. username and password. 
+
+*turn on login/logout form*
 
 `httpSecurity.loginPage` must be a post method, so `httpSecurity.successForwardUrl` need to be post method too. Post forword Post. 
 
