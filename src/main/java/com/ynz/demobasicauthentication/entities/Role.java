@@ -1,6 +1,5 @@
 package com.ynz.demobasicauthentication.entities;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

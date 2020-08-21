@@ -18,6 +18,19 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         User user = userRepository.findByLoginName(username)
                 .orElseThrow(() -> new UsernameNotFoundException(username + " is not found."));
 
-        return SecuredUser.instance(user);
+        return mapToUserDetails(user);
+    }
+
+    private UserDetails mapToUserDetails(User user) {
+
+        return org.springframework.security.core.userdetails.User.builder()
+                .username(user.getLoginName())
+                .password(user.getPassword())
+                .roles(user.getRoles().stream().map(role -> role.getRoleName()).toArray(String[]::new))
+                .accountExpired(false)
+                .credentialsExpired(false)
+                .accountLocked(false)
+                .disabled(false)
+                .build();
     }
 }

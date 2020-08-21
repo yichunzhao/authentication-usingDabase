@@ -44,7 +44,7 @@ public class DemoBasicAuthenticationApplication implements CommandLineRunner {
 
         userRepository.save(user);
 
-        //userRepository.save(user1);
+        userRepository.save(user1);
     }
 
     @Bean
