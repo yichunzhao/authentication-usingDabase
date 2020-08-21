@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import java.util.Set;
 
 @Entity
@@ -24,7 +24,7 @@ public class User {
     private String loginName;
     private String password;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Set<Role> roles;
 
     @Builder
@@ -37,6 +37,6 @@ public class User {
 
     private void setRoleUser(Set<Role> roles) {
         this.roles = roles;
-        roles.forEach(role -> role.setUser(this));
+        roles.forEach(role -> role.addUser(this));
     }
 }

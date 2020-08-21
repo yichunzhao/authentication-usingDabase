@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class SuccessController {
 
     @GetMapping("/admin")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String getAdminPage() {
         return "adminpage";
     }
 
     @GetMapping("/user")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('ROLE_USER')")
     public String getUserPage() {
         return "userpage";
     }

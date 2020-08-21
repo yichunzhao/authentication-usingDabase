@@ -37,7 +37,14 @@ public class DemoBasicAuthenticationApplication implements CommandLineRunner {
         User user = User.builder().loginName(loginName).password(password)
                 .roles(Stream.of(role1, role2).collect(toSet())).build();
 
+        String loginName1 = "nob";
+        String password1 = passwordEncoder().encode("nob");
+        User user1 = User.builder().loginName(loginName1).password(password1)
+                .roles(Stream.of(role1).collect(toSet())).build();
+
         userRepository.save(user);
+
+        //userRepository.save(user1);
     }
 
     @Bean
