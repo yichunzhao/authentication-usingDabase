@@ -39,7 +39,7 @@ Using helper class `SecurityContextHelper` to access `SecurityContext`.
 
 `SecurityContext` is stored in a threadlocal, so methods that carried out in the same thread may access `SecurityContext` via its helper class. We may access principal, credential and aunthentication via the `SecurityContext`.
 
-Once a user successfully sign in, `SecurityContext` is ready to access in the **ThreadLocal**. `Principal` and 'Authentication' can be injected in the request handler method as an argument. Thus, signed in user can be easily accessed within the method body. 
+Once a user successfully sign in, `SecurityContext` is ready to access in the **ThreadLocal**. `Principal` and `Authentication` can be injected in the request handler method as an argument. Thus, signed in user can be easily accessed within the method body. 
 
 ## Scecurity Exceptions
 
