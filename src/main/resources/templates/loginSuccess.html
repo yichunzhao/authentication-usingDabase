@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Success login</title>
@@ -7,8 +7,10 @@
 <body>
 <H1> Login Success</H1>
 
+
 <p>
-<h2><i>superman is flying</i></h2>
+<h2>Welcome <span th:text="${currentUser}"></span></h2>
+<h2><i>Superman is flying...</i></h2>
 </p>
 
 
