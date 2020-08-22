@@ -47,7 +47,7 @@ Two types of exceptions, i.e. **AccessDeniedException** and **AuthenticationExce
 
 SecurityFilterChain contains an `ExceptionTranslationFilter`, which translates the Security exceptions into http responses. 
 
-## Authorize Method Security
+## Authorize Method 
 
 Enable Spring method security globally: 
 
