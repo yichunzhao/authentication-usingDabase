@@ -33,5 +33,22 @@ The magic that linking the login form with the **AuthenticationProvider** is the
 
 `httpSecurity.loginPage` must be a post method, so `httpSecurity.successForwardUrl` need to be post method too. Post forword Post. 
 
+## SecurityContext
+
+Using helper class `SecurityContextHelper` to access `SecurityContext`.
+
+`SecurityContext` is stored in a threadlocal, so methods that carried out in the same thread may access `SecurityContext` via its helper class. We may access principal, credential and aunthentication via `SecurityContext`.
+
+
+## Scecurity Exceptions
+
+Two types of exceptions, i.e. **AccessDeniedException** and **AuthenticationException**. It is a top level exception wrapper, for instance, **UserNameNotFoundException** will be wrapped in the **AuthenticationException**. When an exception is thrown, Spring security will understand it as a login failure, landing on the loginFailure url.    
+
+SecurityFilterChain contains an `ExceptionTranslationFilter`, which translates the Security exceptions into http responses. 
+
+
+
+
+
 
 
