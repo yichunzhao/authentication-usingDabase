@@ -54,6 +54,10 @@ Enable Spring method security globally:
 ````
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 ````
+* prePostEnabled property enables Spring Security pre/post annotations
+* securedEnabled preoperty enables @Secured annotation
+* jsr250Enabled property enables @RoleAllowed annotation
+
 
 https://www.baeldung.com/spring-security-method-security
 
