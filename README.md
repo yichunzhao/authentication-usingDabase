@@ -65,6 +65,7 @@ for instance: Authorize methods
 * securedEnabled preoperty enables @Secured annotation
 * jsr250Enabled property enables @RoleAllowed annotation
 
+The benifit to use prePost: it supports SpEL expressions, fx: predict(Relational >< etc) or logic(or, and etc) 
 
 https://www.baeldung.com/spring-security-method-security
 
