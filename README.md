@@ -35,15 +35,15 @@ The magic that linking the login form with the **AuthenticationProvider** is the
 
 ## SecurityContext
 
-Using helper class `SecurityContextHelper` to access `SecurityContext`.
+Using the helper class `SecurityContextHelper` to access `SecurityContext`.
 
-`SecurityContext` is stored in a threadlocal, so methods that carried out in the same thread may access `SecurityContext` via its helper class. We may access principal, credential and aunthentication via the `SecurityContext`.
+`SecurityContext` is stored in a `Threadlocal`, so that methods that carried out in the same thread may access `SecurityContext` via the helper class. We may access the principal, the credential and authorities via the `SecurityContext`.
 
-Once a user successfully sign in, `SecurityContext` is ready to access in the **ThreadLocal**. `Principal` and `Authentication` can be injected in the request handler method as an argument. Thus, signed in user can be easily accessed within the method body. 
+Once a user successfully sign in, `SecurityContext` is ready in the **ThreadLocal**. `Principal` and `Authentication` can be injected in the request handler method as an argument. 
 
 ## Scecurity Exceptions
 
-Two types of exceptions, i.e. **AccessDeniedException** and **AuthenticationException**. It is a top level exception wrapper, for instance, **UserNameNotFoundException** will be wrapped in the **AuthenticationException**. When an exception is thrown, Spring security will understand it as a login failure, landing on the loginFailure url.    
+Two types of exceptions, i.e. **AccessDeniedException** and **AuthenticationException**. It is a top level wrapper, for instance, **UserNameNotFoundException** will be wrapped in the **AuthenticationException**. When an exception is thrown, Spring security will understand it as a login failure, landing on the loginFailure url.    
 
 SecurityFilterChain contains an `ExceptionTranslationFilter`, which translates the Security exceptions into http responses. 
 
