@@ -35,7 +35,13 @@ The magic that linking the login form with the **AuthenticationProvider** is the
 
 ## SecurityContext
 
+It is the place to store the details of who is authenticatd.
+It is the heart of Spring security authentication model, and contains the SecurityContext.
+
 Using the helper class `SecurityContextHelper` to access `SecurityContext`.
+
+A `SecuityContextHolder` contains a `SecurityContext`, which cantains an `Authentication` consisting of `Principle`(user), `Credential`(pwd), Authorities(permissions).
+By default the `SecurityContextHolder` uses a ThreadLocal to store a `SecurityContext`, meaning that the `SecurityContext` is always availiable to methods in the same thread, even if the `SecurityContext` is not passed around as an argument to those methods.
 
 `SecurityContext` is stored in a `Threadlocal`, so that methods that carried out in the same thread may access `SecurityContext` via the helper class. We may access the principal, the credential and authorities via the `SecurityContext`.
 
