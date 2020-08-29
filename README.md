@@ -9,6 +9,15 @@ Spring security has done a lot of magics.  Key entry points to configure this fr
 
 The items can be auto-configured by the Spring auto-configuration mechanism. If you don't declare yourown, then default will be plugged in. 
 
+## Elements involved
+
+* User-password authentication: One of the most common ways to authenticate a user by validating username and password.
+* Reading the username and passowrd: reading name password froma Customised login page
+* Storage mechanisms : User security details is stored in a Relational database.
+* UserDetailsService : Core interface which loads user-specific security details. 
+* PasswordEncoder : Service interface for encoding password. Normally we use BCryptPasswordEncoder.
+* AuthenticationProvider : Indicate a class that can process Authentication. 
+
 ## Authentication using database
 
 **AuthenticationProvider** is an interface indicating that its impl. provides authentication services. 
